@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>constructor</title>
+<!--<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js" nonce="4D67362F79BAB44E915918DA5F25153E" charset="UTF-8"></script>--><style>
+  button.add {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 328.911 328.911" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23fff"%3E%3Cpath d="m310.2 18.71c-12.464-12.468-27.549-18.703-45.248-18.703h-201c-17.703 0-32.79 6.235-45.253 18.704-12.466 12.466-18.701 27.55-18.701 45.249v200.99c0 17.515 6.232 32.552 18.701 45.11 12.467 12.566 27.553 18.843 45.253 18.843h201c17.699 0 32.777-6.276 45.248-18.843 12.47-12.559 18.705-27.596 18.705-45.11v-200.99c0-17.699-6.245-32.783-18.712-45.25zm-17.837 246.25c0 7.614-2.673 14.089-8.001 19.414-5.324 5.332-11.799 7.994-19.41 7.994h-201c-7.614 0-14.082-2.662-19.414-7.994-5.33-5.325-7.992-11.8-7.992-19.414v-201c0-7.613 2.662-14.086 7.992-19.414 5.327-5.327 11.8-7.994 19.414-7.994h201c7.61 0 14.086 2.663 19.41 7.994 5.325 5.328 7.994 11.801 7.994 19.414v201z"/%3E%3Cpath d="m246.68 146.19h-63.953v-63.953c0-2.667-0.855-4.854-2.573-6.567-1.704-1.714-3.895-2.568-6.564-2.568h-18.271c-2.667 0-4.854 0.854-6.567 2.568-1.714 1.713-2.568 3.903-2.568 6.567v63.954h-63.954c-2.664 0-4.857 0.855-6.567 2.568-1.711 1.713-2.568 3.903-2.568 6.567v18.271c0 2.666 0.854 4.855 2.568 6.563 1.712 1.708 3.903 2.57 6.567 2.57h63.954v63.953c0 2.666 0.854 4.855 2.568 6.563 1.713 1.711 3.903 2.566 6.567 2.566h18.271c2.67 0 4.86-0.855 6.564-2.566 1.718-1.708 2.573-3.897 2.573-6.563v-63.952h63.953c2.662 0 4.853-0.862 6.563-2.57 1.712-1.708 2.563-3.897 2.563-6.563v-18.271c0-2.664-0.852-4.857-2.563-6.567-1.71-1.711-3.901-2.57-6.563-2.57z"/%3E%3C/g%3E%3C/svg%3E');
+  }
+  button.matrix {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 27.709 27.709" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="m9.84 0.078h7.655v7.652h-7.655v-7.652zm0 9.84h7.655v7.652h-7.655v-7.652zm-9.84 0h7.652v7.652h-7.652v-7.652zm0-9.84h7.652v7.652h-7.652v-7.652zm3e-3 19.9h7.649v7.654h-7.649v-7.654zm9.84 0h7.652v7.654h-7.652v-7.654zm10.211-19.9h7.655v7.652h-7.655v-7.652zm0 9.84h7.655v7.652h-7.655v-7.652zm0 10.06h7.655v7.654h-7.655v-7.654z" fill="%23fff"/%3E%3C/svg%3E');
+    background-size: 14px;
+  }
+  button.info {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 490 490" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M245,490C109.9,490,0,380.1,0,245S109.9,0,245,0s245,109.9,245,245S380.1,490,245,490z M245,62C144.1,62,62,144.1,62,245 s82.1,183,183,183s183-82.1,183-183S345.9,62,245,62z" fill="%23fff"/%3E%3Ccircle cx="241.3" cy="159.2" r="29.1" fill="%23fff"/%3E%3Cpolygon points="285.1 359.9 270.4 359.9 219.6 359.9 204.9 359.9 204.9 321 219.6 321 219.6 254.8 205.1 254.8 205.1 215.9 219.6 215.9 263.1 215.9 270.4 215.9 270.4 321 285.1 321" fill="%23fff"/%3E%3C/svg%3E');
+  }
+  button.close {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 23.331 23.331" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="m16.043 11.667l6.566-6.567c0.963-0.963 0.963-2.539 0-3.502l-0.875-0.875c-0.963-0.964-2.539-0.964-3.502 0l-6.566 6.567-6.567-6.567c-0.962-0.963-2.538-0.963-3.501 0l-0.876 0.875c-0.962 0.963-0.962 2.539 0 3.502l6.566 6.566-6.566 6.567c-0.962 0.963-0.962 2.539 0 3.501l0.876 0.875c0.963 0.963 2.539 0.963 3.501 0l6.567-6.565 6.566 6.565c0.963 0.963 2.539 0.963 3.502 0l0.875-0.875c0.963-0.963 0.963-2.539 0-3.501l-6.566-6.566z" fill="%23fff"/%3E%3C/svg%3E');
+    width: 30px;
+    padding: 0;
+    float: right;
+  }
+  button.open {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 545.027 545.027" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="m540.74 281.36c-4.179-8.754-10.568-15.464-19.123-20.12-8.566-4.665-17.987-6.995-28.264-6.995h-54.819v-45.683c0-17.511-6.283-32.548-18.843-45.111-12.566-12.562-27.604-18.842-45.111-18.842h-155.32v-9.136c0-17.511-6.283-32.548-18.842-45.107-12.564-12.562-27.6-18.846-45.111-18.846h-91.362c-17.511 0-32.548 6.283-45.111 18.846-12.562 12.56-18.842 27.597-18.842 45.108v274.09c0 17.508 6.28 32.545 18.842 45.104 12.563 12.565 27.6 18.849 45.111 18.849h310.64c12.748 0 26.07-3.285 39.971-9.855 13.895-6.563 24.928-14.894 33.113-24.981l84.227-103.64c8.754-11.037 13.127-22.453 13.127-34.26 4e-3 -6.854-1.424-13.319-4.284-19.421zm-504.2-145.88c0-7.611 2.663-14.084 7.993-19.414 5.326-5.327 11.799-7.993 19.414-7.993h91.365c7.615 0 14.084 2.663 19.414 7.993 5.327 5.33 7.993 11.803 7.993 19.414v18.274c0 7.616 2.667 14.087 7.994 19.414s11.798 7.994 19.412 7.994h164.45c7.611 0 14.089 2.666 19.418 7.993 5.324 5.326 7.99 11.799 7.99 19.414v45.682h-219.27c-12.941 0-26.269 3.284-39.973 9.851-13.706 6.567-24.744 14.893-33.12 24.986l-73.085 89.931v-243.54zm466.8 176.44l-83.939 103.64c-4.753 5.899-11.512 10.943-20.272 15.125-8.754 4.189-16.939 6.283-24.551 6.283h-310.63c-10.088 0-15.131-3.333-15.131-9.992 0-3.046 1.713-6.852 5.14-11.427l83.938-103.63c4.949-5.903 11.75-10.896 20.413-14.989 8.658-4.093 16.796-6.14 24.411-6.14h310.63c10.088 0 15.129 3.333 15.129 9.993 1e-3 3.245-1.706 6.954-5.139 11.143z" fill="%23fff"/%3E%3C/svg%3E');
+  }
+  button.save {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 438.533 438.533" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="m432.82 121.05c-3.806-9.132-8.377-16.367-13.709-21.695l-79.941-79.942c-5.325-5.325-12.56-9.895-21.696-13.704-9.131-3.805-17.508-5.708-25.12-5.708h-264.95c-7.611 0-14.084 2.663-19.414 7.993-5.33 5.327-7.992 11.799-7.992 19.414v383.72c0 7.617 2.662 14.089 7.992 19.417 5.33 5.325 11.803 7.991 19.414 7.991h383.72c7.618 0 14.089-2.666 19.417-7.991 5.325-5.328 7.987-11.8 7.987-19.417v-264.95c0-7.616-1.902-15.99-5.708-25.129zm-250.1-75.372c0-2.474 0.905-4.611 2.714-6.423 1.807-1.804 3.949-2.708 6.423-2.708h54.819c2.468 0 4.609 0.902 6.417 2.708 1.813 1.812 2.717 3.949 2.717 6.423v91.362c0 2.478-0.91 4.618-2.717 6.427-1.808 1.803-3.949 2.708-6.417 2.708h-54.819c-2.474 0-4.617-0.902-6.423-2.708-1.809-1.812-2.714-3.949-2.714-6.427v-91.362zm146.18 356.31h-219.27v-109.64h219.27v109.64zm73.094 0h-36.559v-118.77c0-7.617-2.663-14.085-7.991-19.417-5.328-5.328-11.8-7.994-19.41-7.994h-237.54c-7.614 0-14.087 2.666-19.417 7.994-5.327 5.328-7.992 11.8-7.992 19.417v118.77h-36.545v-365.45h36.544v118.77c0 7.615 2.662 14.084 7.992 19.414 5.33 5.327 11.803 7.993 19.417 7.993h164.46c7.61 0 14.089-2.666 19.41-7.993 5.325-5.327 7.994-11.799 7.994-19.414v-118.77c2.854 0 6.563 0.95 11.136 2.853 4.572 1.902 7.806 3.805 9.709 5.708l80.232 80.23c1.902 1.903 3.806 5.19 5.708 9.851 1.909 4.665 2.857 8.33 2.857 10.994v255.81z" fill="%23fff"/%3E%3C/svg%3E');
+  }
+</style>
+<style>
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #777;
+    background-size: 40px 40px, 40px 40px, 20px 20px, 20px 20px;
+    background-image:
+     linear-gradient(to right,  #999 1px, transparent 1px),
+     linear-gradient(to bottom, #999 1px, transparent 1px),
+     linear-gradient(to right,  #888 1px, transparent 1px),
+     linear-gradient(to bottom, #888 1px, transparent 1px);
+    background-position: -1px -1px;
+    overflow: hidden;
+    color: #fff;
+  }
+  body>header {
+    background: #333;
+    padding: 5px;
+    box-sizing: border-box;
+    cursor: default;
+    height: 40px;
+  }
+  button {
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0 10px 0 30px;
+    background-color: #555;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: 7px 50%;
+    color: #fff;
+  }
+  #form {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    margin: 20px;
+  }
+  button:hover {
+    background-color: #777;
+  }
+  .modal {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+  }
+  .modal.shown {
+    visibility: visible;
+    opacity: 1;
+  }
+  .box {
+    background: rgba(20,20,20,0.8);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 3px 15px #000;
+  }
+  .modal>div {
+    margin: 15% auto;
+  }
+  #about>.box {
+    width: 500px;
+  }
+  .modal>div>header {
+    font-size: 120%;
+    margin-bottom: 15px;
+    line-height: 33px;
+  }
+  a {
+    color: #bbb;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #eee;
+    text-decoration: underline;
+  }
+  .node>header {
+    position: absolute;
+  }
+  .drag {
+    height: 35px;
+    position: relative;
+    left: -10px;
+    top: -10px;
+    cursor: move;
+    width: calc(100% - 12px);
+  }
+  .node button.close {
+    background-size: 8px;
+    background-position: 50% 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  #matrix>.box {
+    width: 1000px;
+  }
+  #matrixdata {
+    border: 1px solid gray;
+  }
+  #matrixdata td {
+    border: 1px solid gray;
+    width: 100px;
+    height: 20px;
+  }
+  .node {
+    box-sizing: border-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-shadow: 0 0 3px #000, 0 0 3px #000, 0 0 7px #000;
+  }
+  .resize {
+    width: 16px;
+    height: 8px;
+    position: absolute;
+  }
+  .resize.nw {
+    top: 0;
+    left: 0;
+    cursor: nw-resize;
+  }
+  .resize.ne {
+    top: 0;
+    right: 0;
+    cursor: ne-resize;
+  }
+  .resize.sw {
+    bottom: 0;
+    left: 0;
+    cursor: sw-resize;
+  }
+  .resize.se {
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+  }
+  .controls {
+    position: absolute;
+    bottom: 15px;
+    text-align: center;
+    width: calc(100% - 20px);
+  }
+  .controls button {
+    padding-left: 10px;
+  }
+  #matrixdata td[data-img] {
+    background: rgba(0, 128, 0, 0.5);
+  }
+  #nameinput {
+    padding-left: 20px;
+    font-size: 16px;
+  }
+  body>header>span {
+    font-size: 25px;
+  }
+  .arrow{
+    height:10px;
+    background: black;
+    color:#fff;
+    position:relative;
+    width:200px;
+    text-align:center;
+    line-height:40px;
+}
+.arrow:after{
+    content:"";
+    position:absolute;
+    height:0;
+    width:0;
+    left:100%;
+    top:0;
+    border:5px solid transparent;
+    border-left: 5px solid black;
+}
+</style>
+<header>
+  <button class=open onclick=openLab()>Open</button>
+  <button class=save onclick=saveLab()>Save</button>
+  <button class=add onclick=addNode('model')>Model</button>
+  <button class=add onclick=addNode('view')>View</button>
+  <button class=add onclick=addNode('controller')>Controller</button>
+  <button class=matrix onclick=showModal('matrix')>Edit Matrix</button>
+  <button onclick=addCursor()>Cursor</button>
+  <button onclick=addLines()>Add lines</button>
+  <button onclick=setRandomValues()>Randomize</button> 
+  <span id=nameinput contenteditable>Введите название...</span>
+  <button class=info style=float:right onclick=showModal('about')>About</button>
+</header>
+<div id=form></div>
+<div class=modal id=matrix onclick=hideModal(this,event)>
+  <div class=box>
+    <header>
+      Матрица поведения
+      <button class=close style=float:right onclick=hideModal(this)></button>
+
+      <button style="float:right;padding-left:10px;margin-left:4px;margin-right:4px" onclick="let m=$('#matrixdata');m.deleteRow(m.rows.length-1)">Del row</button>
+      <button style="float:right;padding-left:10px" onclick="let m=$('#matrixdata');m.insertRow()">Add row</button>
+
+    </header>
+    <table id=matrixdata contenteditable>
+
+      <tr><td></td></tr>
+    </table>
+  </div>
+</div>
+<div class=modal id=about onclick=hideModal(this,event)>
+  <div class=box>
+    <header>
+      LabConstructor <span style=font-size:70%>v1.0/2019-01-31</span>
+      <button class=close onclick=hideModal(this)></button>
+    </header>
+    Конструктор лабораторных работ<br><br>
+    МТУСИ, 2019<br><br>
+    <small>
+      Icons made by
+      <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a>,
+      <a href="https://www.freepik.com" title="Freepik">Freepik</a>,
+      <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a>,
+      <a href="https://www.flaticon.com/authors/designerz-base" title="Designerz Base">Designerz Base</a>
+      from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> are licensed by
+      <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+    </small>
+  </div>
+</div>
+<script>
+  'use strict';
+  const NODE_MIN_WIDTH = 150;
+  const NODE_MIN_HEIGHT = 100;
+  let {min, max, round} = Math;
+  let nodes = {
+    models: {},
+    views: {},
+    controllers: {}
+  };
+  let matrixJson;
+  function $(sel, start) {
+    return (start || document).querySelector(sel);
+  }
+  function $$(sel, start) {
+    return (start || document).querySelectorAll(sel);
+  }
+  let form = $('#form');
+  function showModal(id) {
+    $('#'+id).classList.add('shown');
+  }
+  function hideModal(el, event) {
+    if (event && !event.target.classList.contains('modal')) return;
+    while (!el.classList.contains('modal')) el = el.parentNode;
+    el.classList.remove('shown');
+  }
+  $('body>header').onclick = function(event) { //edit caption
+    if (this != event.target) return;
+    $('#nameinput').focus();
+    document.execCommand('selectAll', false, null);
+  }
+  function showImage(node, image) {
+    node.style.backgroundImage = `url(${image})`
+  }
+  function clearImage(node) {
+    node.style.backgroundImage = '';
+  }
+  function createNodeDiv(type, name) {
+    let node = document.createElement('div');
+    node.className = `box node ${type}`;
+    node.style.position = 'absolute';
+    if (type == 'model') node.ondblclick = (event)=> {
+      if (event.target != node) return;
+      loadImage((e)=>{
+        showImage(node, e);
+        node.ref.img = e;
+      });
+    }
+    node.innerHTML = `
+     <header contenteditable>${name}</header>
+     <div class=drag></div><button class=close></button>
+     <div class=content></div>
+     <div class="resize nw"></div>
+     <div class="resize ne"></div>
+     <div class="resize sw"></div>
+     <div class="resize se"></div>
+    `;
+    node.content = $('.content', node);
+    switch (type) {
+      case 'model': node.content.innerHTML = `
+      `; break;
+      case 'view': node.content.innerHTML = `
+      `; break;
+      case 'controller': node.content.innerHTML = `
+       <div class=controls>
+         <button class=left onclick=countDec.call(this)><</button>
+         <span class=value></span>
+         <button class=right onclick=countInc.call(this)>></button>
+       </div>
+      `; break;
+    }
+    $('.drag', node).ondblclick = ()=> {
+      $('header', node).focus();
+      document.execCommand('selectAll', false, null);
+    };
+    function release() {
+      document.onmousemove = null;
+      document.onmouseup = null;
+      node.style.zIndex = '';
+      resizeNode(node);
+    }
+    $('.drag', node).onmousedown = (event)=> {
+      if (saved) return;
+      event.preventDefault();
+      node.style.zIndex = 1000;
+      let shiftX = event.pageX - node.offsetLeft;
+      let shiftY = event.pageY - node.offsetTop;
+      document.onmousemove = (event)=> {
+        let left = event.pageX - shiftX;
+        let top = event.pageY - shiftY;
+        if (left + node.offsetWidth > form.offsetWidth) {
+          left = form.offsetWidth - node.offsetWidth
+        } else if (left < 0) {left = 0}
+        if (top + node.offsetHeight > form.offsetHeight) {
+          top = form.offsetHeight - node.offsetHeight
+        } else if (top < 0) {top = 0}
+        node.style.left = left + 'px';
+        node.style.top = top + 'px';
+      };
+      document.onmouseup = release;
+    };
+    $$('.resize', node).forEach((e)=> {
+      e.onmousedown = (event)=> {
+        event.preventDefault();
+        node.style.zIndex = 1000;
+        let x0 = event.pageX;
+        let y0 = event.pageY;
+        let l0 = node.offsetLeft;
+        let t0 = node.offsetTop;
+        let w0 = node.offsetWidth;
+        let h0 = node.offsetHeight;
+        let type = e.classList[1];
+        document.onmousemove = (event)=> {
+          let dx = event.pageX - x0;
+          let dy = event.pageY - y0;
+          let l = l0, t = t0, w = w0, h = h0;
+          //left-top-right-bottom
+          if (type === 'nw' || type === 'sw') {
+            l += dx;
+            w -= dx;
+            if (w < NODE_MIN_WIDTH) {
+              l = l0 + w0 - NODE_MIN_WIDTH;
+              w = NODE_MIN_WIDTH;
+            } else if (l < 0) {
+              l = 0;
+              w = l0 + w0;
+            }
+          }
+          if (type === 'nw' || type === 'ne') {
+            t += dy;
+            h -= dy;
+            if (h < NODE_MIN_HEIGHT) {
+              t = t0 + h0 - NODE_MIN_HEIGHT;
+              h = NODE_MIN_HEIGHT;
+            } else if (t < 0) {
+              t = 0;
+              h = t0 + h0;
+            }
+          }
+          if (type === 'ne' || type === 'se') {
+            w += dx;
+            if (w < NODE_MIN_WIDTH) {
+              w = NODE_MIN_WIDTH;
+            } else if (l + w > form.offsetWidth) {
+              w = form.offsetWidth - l;
+            }
+          }
+          if (type === 'sw' || type === 'se') {
+            h += dy;
+            if (h < NODE_MIN_HEIGHT) {
+              h = NODE_MIN_HEIGHT;
+            } else if (t + h > form.offsetHeight) {
+              h = form.offsetHeight - t;
+            }
+          }
+          node.style.left   = l + 'px';
+          node.style.top    = t + 'px';
+          node.style.width  = w + 'px';
+          node.style.height = h + 'px';
+        };
+        document.onmouseup = release;
+      }
+    });
+    $('button', node).onclick = function() {
+      delete nodes[type + 's'][this.parentNode.nodeID]
+      this.parentNode.remove()
+    };
+    return node;
+  }
+  function resizeNodeDiv(node) {
+    let w = max(round(node.ref.w * form.offsetWidth), NODE_MIN_WIDTH);
+    let h = max(round(node.ref.h * form.offsetHeight), NODE_MIN_HEIGHT);
+    let l = round((form.offsetWidth - w) * node.ref.l);
+    let t = round((form.offsetHeight - h) * node.ref.t);
+    node.style.left   = l + 'px';
+    node.style.top    = t + 'px';
+    node.style.width  = w + 'px';
+    node.style.height = h + 'px';
+  }
+  function resizeNode(node) {
+
+    node.ref.l = node.offsetLeft / ((form.offsetWidth - node.offsetWidth) || 1);
+    node.ref.t = node.offsetTop / ((form.offsetHeight - node.offsetHeight) || 1);
+    node.ref.w = node.offsetWidth / form.offsetWidth;
+    node.ref.h = node.offsetHeight / form.offsetHeight;
+  }
+  function addNode(type) {
+    let list = nodes[type + 's'];
+    let id = (+Object.keys(list).pop() + 1) || 0;
+    list[id] = {
+      l: 0.5,
+      t: 0.5,
+      w: 0.2,
+      h: 0.25
+    };
+    let node = createNodeDiv(type, type + '_' + id);
+    node.nodeID = id;
+    node.ref = list[id];
+    form.appendChild(node);
+    resizeNodeDiv(node);
+    resizeNode(node);
+  }
+  function addCursor(type) {
+
+    let node = document.createElement('div');
+    node.className = 'arrow';
+    node.onmousedown = function(e) { 
+      node.style.position = 'absolute';
+      moveAt(e);
+      document.body.appendChild(node);
+      node.style.zIndex = 1000; 
+    function moveAt(e) {
+      node.style.left = e.pageX - node.offsetWidth / 2 + 'px';
+      node.style.top = e.pageY - node.offsetHeight / 2 + 'px';
+    }
+    document.onmousemove = function(e) {
+      moveAt(e);
+    }
+    node.onmouseup = function() {
+      document.onmousemove = null;
+      node.onmouseup = null;
+    }
+}
+
+    //node.appendChild(resizer);
+
+ 
+    form.appendChild(node);
+    
+  }
+  
+  function showLoadedNodes() {
+    ['model', 'view', 'controller'].forEach((type)=> {
+      let list = nodes[type + 's'];
+      for (let id in list) {
+        let node = createNodeDiv(type, list[id].name);
+        node.nodeID = id;
+        node.ref = list[id];
+        form.appendChild(node);
+        resizeNodeDiv(node);
+        if (node.ref.img) showImage(node, node.ref.img);
+      }
+    });
+  }
+  function loadFile(file) {
+    let fr = new FileReader;
+    fr.onload = ()=> {
+      let doc = document.createElement('html');
+      doc.innerHTML = fr.result;
+      $('#nameinput').textContent = $('title', doc).textContent;
+      let script = document.createElement('script');
+      script.innerHTML = $('script.data', doc).innerHTML;
+      document.body.appendChild(script);
+      form.innerHTML = '';
+      showLoadedNodes();
+      $('#matrixdata').innerHTML = matrixJson;
+    }
+    fr.readAsText(file);
+  }
+  function load() {
+    showLoadedNodes();
+    let m = document.createElement('table');
+    m.id = 'matrixdata';
+    m.style.display = 'none';
+    m.innerHTML = matrixJson;
+    document.body.appendChild(m);
+  }
+  document.body.onresize = ()=> $$('.node').forEach((node)=> resizeNodeDiv(node));
+  function openLab() {
+    let fs = document.createElement('input');
+    fs.type = 'file';
+    fs.click();
+    fs.onchange = ()=> loadFile(fs.files[0]);
+  }
+  function saveLab() {
+    let file = '<!DOCTYPE html>';
+    file += $('meta').outerHTML;
+    let name = $('#nameinput').textContent;
+    file += `<title>${name}</title>`;
+    file += $('style:nth-of-type(2)').outerHTML;
+    file += `<header><span>${name}</span></header>`;
+    file += '<div id=form></div>'
+    file += $('script').outerHTML;
+    file += `
+     <style>
+       .resize, .close {display: none}
+       .drag {cursor: default}
+     </style>
+    `;
+    file += `
+     <script class=data>
+       matrixJson = ${JSON.stringify(matrixdata.innerHTML)};
+       nodes = ${JSON.stringify(nodes)};
+     </scr` + `ipt><script>
+       saved = 1;
+       load();
+     </scr` + `ipt>`;
+    file += $('script:last-of-type').outerHTML;
+    let a = document.createElement('a');
+    a.setAttribute('download', name.replace(' ', '_') + '.htm');
+    a.href = 'data:text/html,' + encodeURIComponent(file);
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+  function loadImage(callback) {
+    let fs = document.createElement('input');
+    fs.type = 'file';
+    fs.onchange = ()=> {
+      let fr = new FileReader;
+      fr.onload = ()=> callback(fr.result, fs.files[0].name);
+      fr.readAsDataURL(fs.files[0]);
+    };
+    fs.click();
+  }
+
+  let saved;
+  function adjustTableCells() {
+    Array.from($('#matrixdata').rows).forEach((e)=>{
+      let cCount = $$('.view').length;
+      while (e.cells.length-1 < cCount) e.insertCell();
+      while (e.cells.length-1 > cCount) e.deleteCell(e.cells.length-1);
+    });
+  }
+
+  $('#matrixdata').ondblclick = (event)=> {
+    const attr = 'data-img';
+    let cell = event.target;
+    if (cell.tagName != 'TD') return;
+    if (cell.cellIndex == 0) return;
+    if (cell.hasAttribute(attr)) {
+      cell.removeAttribute(attr);
+      cell.textContent = '';
+      return;
+    }
+    loadImage((img, name)=>{
+      cell.setAttribute(attr, img);
+      cell.textContent = name;
+    });
+  }
+  </script>
+  <script>
+  setInterval(()=>{
+
+    if (!saved) $$('.node').forEach((e)=> {
+      e.ref.name = $('header', e).textContent;
+    });
+
+    if (!$('.controller .value')) return;
+    adjustTableCells();
+    let tableInfo = Array.prototype.map.call(document.querySelectorAll('#matrixdata tr'), function(tr){
+      return Array.prototype.map.call(tr.querySelectorAll('td'), function(td){
+        return td;
+      });
+    });
+    tableInfo.forEach((e)=>{
+      if ($('.controller .value').textContent.trim()!=e[0].textContent.trim()) return;
+      $$('.view .content').forEach((n, i)=>{
+        if (e[i+1].hasAttribute('data-img')) {
+          showImage(n.parentNode, e[i+1].getAttribute('data-img'));
+          n.textContent = '';
+        } else {
+          clearImage(n.parentNode);
+          n.textContent = e[i+1].textContent;
+        }
+      })
+    })
+  }, 100)
+  function countDec() {
+    let tableInfo = Array.prototype.map.call(document.querySelectorAll('#matrixdata tr'), function(tr){
+      return Array.prototype.map.call(tr.querySelectorAll('td'), function(td){
+        return td.textContent;
+      });
+    });
+
+    if (!$('.value', this.parentNode).textContent) {
+      $('.value', this.parentNode).textContent = tableInfo[0][0];
+      return;
+    }
+
+    tableInfo.some((e, i)=>{
+      if ($('.value', this.parentNode).textContent.trim() == e[0].trim()) {
+        $('.value', this.parentNode).textContent = tableInfo[i-1][0];
+        return true;
+      }
+    })
+  }
+  function countInc() {
+    let tableInfo = Array.prototype.map.call(document.querySelectorAll('#matrixdata tr'), function(tr){
+      return Array.prototype.map.call(tr.querySelectorAll('td'), function(td){
+        return td.textContent;
+      });
+    });
+
+    if (!$('.value', this.parentNode).textContent) {
+      $('.value', this.parentNode).textContent = tableInfo[0][0];
+      return;
+    }
+
+    tableInfo.some((e, i)=>{
+      if ($('.value', this.parentNode).textContent.trim() == e[0].trim()) {
+        $('.value', this.parentNode).textContent = tableInfo[i+1][0];
+        return true;
+      }
+    })
+  }
+
+  function addLines() {
+    const elements = document.getElementsByClassName('box node');
+    const countOfLines = elements - 1;
+    let points = [];
+
+    for(let i = 0; i < elements.length; i++) {
+      let point = elements[i].getBoundingClientRect();
+      let child = document.createElement('div');
+      child.style.width = '10px';
+      child.style.height = '10px';
+      child.style.backgroundColor = 'red';
+      child.style.borderRadius = '50%';
+      child.style.position = 'absolute';
+      child.style.right = point.x - point.width + 'px';
+      child.style.top = point.y + 'px';
+      elements[i].appendChild(child);
+      points.push(point);
+    }
+
+    console.log(points);
+  }
+
+  function setRandomValues() {
+    const table = document.getElementById("matrixdata");
+    for(let i = 0; i < table.rows.length; i++)
+    {
+      for(let j=0;j < table.rows[i].cells.length; j++)
+      {
+          table.rows[i].cells[j].innerHTML =  Math.random();
+      }
+    }
+  }
+
+  function getXY(event) {
+
+    const point = {
+      x: event.clientX,
+      y: event.clientY
+    }
+
+    console.log(point);
+  }
+
+ 
+
+</script>
